@@ -1,0 +1,113 @@
+<html>
+
+<body>
+
+    <script>
+
+        document.body.style.margin = '0';
+        document.body.style.padding = '0';
+        document.body.style.width = '100%';
+        document.body.style.overflow = 'hidden';
+        document.body.style.fontFamily = 'Arial';
+        document.title = 'javaScript DOM Manipulating';
+        document.body.style.display = 'flex';
+        document.body.style.flexDirection = 'row';
+        document.body.style.alignItems = 'center';
+        document.body.style.justifyContent = 'center';
+
+        document.body.onload = () => {
+
+            // <div> Element 
+            var divElem = document.createElement('div');
+            divElem.innerHTML = 'WELCOME TO CITY';
+            divElem.style.textAlign = 'center';
+            divElem.style.lineHeight = '100px';
+            divElem.style.background = '#357376';
+            divElem.style.color = 'white';
+            divElem.style.width = '300px';
+            divElem.style.height = '100px';
+            divElem.style.transform = 'translateX(-1000px)';
+            divElem.style.transition = 'all 1s linear';
+            document.body.appendChild(divElem);
+
+            // div Element 2
+            var divElem = document.createElement('div');
+            divElem.style.background = '#c9d1d3';
+            divElem.style.width = '300px';
+            divElem.style.height = '350px';
+            divElem.style.border = '2px black solid';
+            divElem.style.borderRadius = '10%';
+            divElem.style.position = 'fixed';
+            divElem.style.display = 'flex';
+            divElem.style.flexDirection = 'column';
+            document.body.appendChild(divElem);
+
+            // input UserName
+            var input_userName = document.createElement('input');
+            input_userName.setAttribute('onchange', 'getUserNameValue(this)'); // =>
+            input_userName.style.background = '#fffdf9'
+            input_userName.style.border = 'outset';
+            input_userName.style.width = '250px';
+            input_userName.style.height = '30px';
+            input_userName.style.margin = '20px auto';
+            input_userName.placeholder = 'User Name';
+            input_userName.type = 'text';
+            document.querySelectorAll('div')[1].appendChild(input_userName);
+
+            // input Password
+            var input_password = document.createElement('input');
+            input_password.setAttribute('onchange', 'getPasswordValue(this)'); // =>
+            input_password.type = 'password';
+            input_password.placeholder = 'Password';
+            input_password.style.border = 'outset';
+            input_password.style.width = '250px';
+            input_password.style.height = '30px';
+            input_password.style.margin = '20px auto';
+            document.querySelectorAll('div')[1].appendChild(input_password);
+
+            // input  submit
+            var input_submit = document.createElement('input');
+            input_submit.type = 'submit';
+            input_submit.value = 'Send';
+            input_submit.style.margin = '20px auto';
+            input_submit.style.background = '#015668';
+            input_submit.style.color = 'white';
+            input_submit.style.width = '100px';
+            input_submit.style.height = '50px';
+            input_submit.setAttribute('onclick', 'checkFunc()'); // ! =>
+            document.getElementsByTagName('div')[1].appendChild(input_submit);
+
+        }
+
+        var input_userName_val;
+        var input_password_val;
+
+        let getUserNameValue = (event) => {
+            input_userName_val = event.value;
+            console.log(input_userName_val)
+        }
+
+        let getPasswordValue = (ev) => {
+            input_password_val = ev.value;
+            console.log(input_password_val)
+        }
+
+        let checkFunc = () => {
+
+            if (input_userName_val == "admin" && input_password_val == "admin") {
+
+                document.getElementsByTagName('div')[1].style.transform = ('translateX(1000px)');
+                document.getElementsByTagName('div')[1].style.transition = 'all 1s linear';
+
+                document.getElementsByTagName('div')[0].style.transform = ('translateX(0)');
+
+            } else {
+                alert('User Information is not Correct')
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -83,12 +83,12 @@
         var input_password_val;
 
         let getUserNameValue = (event) => {
-            input_userName_val = event.value;
+            input_userName_val = event.value.toLowerCase();
             console.log(input_userName_val)
         }
 
         let getPasswordValue = (ev) => {
-            input_password_val = ev.value;
+            input_password_val = ev.value.toLowerCase();
             console.log(input_password_val)
         }
 
